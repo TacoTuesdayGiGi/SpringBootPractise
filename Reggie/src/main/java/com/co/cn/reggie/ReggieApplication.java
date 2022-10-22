@@ -1,4 +1,4 @@
-package com.co.cn.reggire;
+package com.co.cn.reggie;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.SpringApplication;
