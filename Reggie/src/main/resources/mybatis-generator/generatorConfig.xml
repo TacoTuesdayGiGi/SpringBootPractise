@@ -15,7 +15,7 @@
         <!--数据库连接参数 -->
         <jdbcConnection
                 driverClass="com.mysql.jdbc.Driver"
-                connectionURL="jdbc:mysql://192.168.56.10:3306/RaJ?serverTimezone=UTC&amp;useSSL=true"
+                connectionURL="jdbc:mysql://localhost:3306/reggie?serverTimezone=UTC&amp;useSSL=true"
                 userId="root"
                 password="root">
         </jdbcConnection>
@@ -36,7 +36,7 @@
         </sqlMapGenerator>
 
         <!-- 生成DAO的包名和位置 -->
-        <javaClientGenerator type="XMLMAPPER" targetPackage="com.co.cn.reggie.repository" targetProject="src/main/java">
+        <javaClientGenerator type="XMLMAPPER" targetPackage="com.co.cn.reggie.mapper" targetProject="src/main/java">
             <property name="enableSubPackages" value="true"/>
         </javaClientGenerator>
 
