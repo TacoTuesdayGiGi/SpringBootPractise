@@ -13,20 +13,18 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.Date;
 
 @Slf4j
 @RestController
 @RequestMapping("/employee")
 public class EmployeeController {
+
     @Autowired
     private EmployeeService employeeService;
 
     /**
      * 登录
-     *
-     * @param request
-     * @param employee
-     * @return
      */
     @PostMapping("/login")
     public R<Employee> login(HttpServletRequest request, @RequestBody Employee employee) {
@@ -53,13 +51,25 @@ public class EmployeeController {
 
     /**
      * 登出
-     *
-     * @param request
-     * @return
      */
     @PostMapping("/logout")
     public R<String> logout(HttpServletRequest request) {
         request.getSession().removeAttribute("employee");
         return R.success("已注销.");
+    }
+
+    /**
+     * 添加员工
+     */
+    @PostMapping()
+    public R<String> save(@RequestBody Employee employee,HttpServletRequest request) {
+        employee.setPassword(DigestUtils.md5DigestAsHex("user".getBytes()));
+        employee.setCreateTime(new Date());
+        employee.setUpdateTime(new Date());
+        Long uid = (Long) request.getSession().getAttribute("employee");
+        employee.setCreateUser(uid);
+        employee.setUpdateUser(uid);
+        employeeService.save(employee);
+        return R.success("新增员工成功.");
     }
 }
