@@ -1,6 +1,7 @@
 package com.co.cn.reggie.filter;
 
 import com.alibaba.fastjson.JSON;
+import com.co.cn.reggie.common.BaseContext;
 import com.co.cn.reggie.common.R;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.util.AntPathMatcher;
@@ -10,7 +11,6 @@ import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.io.PushbackInputStream;
 
 @WebFilter(filterName = "LoginCheckFilter", urlPatterns = "/*")
 @Slf4j
@@ -37,6 +37,8 @@ public class LoginCheckFilter implements Filter {
         }
 
         if (request.getSession().getAttribute("employee") != null) {
+            String empId = (String) request.getSession().getAttribute("employee");
+            BaseContext.setCurrentId(empId);
             chain.doFilter(request, response);
             return;
         }
