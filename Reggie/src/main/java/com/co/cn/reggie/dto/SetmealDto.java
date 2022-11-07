@@ -3,9 +3,11 @@ package com.co.cn.reggie.dto;
 import com.co.cn.reggie.entity.Setmeal;
 import com.co.cn.reggie.entity.SetmealDish;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 import java.util.List;
 
+@EqualsAndHashCode(callSuper = true)
 @Data
 public class SetmealDto extends Setmeal {
 

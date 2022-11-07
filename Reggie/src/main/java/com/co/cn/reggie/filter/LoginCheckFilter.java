@@ -15,7 +15,7 @@ import java.io.IOException;
 @WebFilter(filterName = "LoginCheckFilter", urlPatterns = "/*")
 @Slf4j
 public class LoginCheckFilter implements Filter {
-    public static AntPathMatcher antPathMatcher = new AntPathMatcher();
+    public static final AntPathMatcher antPathMatcher = new AntPathMatcher();
 
     @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain chain) throws IOException, ServletException {

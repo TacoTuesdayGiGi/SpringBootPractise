@@ -1,10 +1,6 @@
 package com.co.cn.reggie.dto;
 
-import com.baomidou.mybatisplus.annotation.FieldFill;
-import com.baomidou.mybatisplus.annotation.TableField;
 import lombok.Data;
-
-import java.util.Date;
 
 /**
  * 分类

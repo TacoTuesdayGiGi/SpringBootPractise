@@ -5,6 +5,6 @@ import com.co.cn.reggie.entity.Category;
 
 public interface CategoryService extends IService<Category> {
 
-    public void remove(String id);
+    void remove(String id);
 
 }

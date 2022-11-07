@@ -62,12 +62,6 @@ public class EmployeeController {
     @PostMapping()
     public R<String> save(@RequestBody Employee employee, HttpServletRequest request) {
         employee.setPassword(DigestUtils.md5DigestAsHex("user".getBytes()));
-//        employee.setCreateTime(new Date());
-//        employee.setUpdateTime(new Date());
-        String uid = (String) request.getSession().getAttribute("employee");
-//        employee.setCreateUser(uid);
-//        employee.setUpdateUser(uid);
-
         employeeService.save(employee);
 
         return R.success("新增员工成功.");
@@ -111,10 +105,6 @@ public class EmployeeController {
     @PutMapping
     public R<String> update(HttpServletRequest request, @RequestBody Employee employee) {
         log.info(employee.toString());
-
-        String empId = (String) request.getSession().getAttribute("employee");
-//        employee.setUpdateTime(new Date());
-//        employee.setUpdateUser(empId);
         employeeService.updateById(employee);
 
         return R.success("员工信息修改成功");
@@ -122,8 +112,6 @@ public class EmployeeController {
 
     /**
      * 根据id查询员工信息
-     * @param id
-     * @return
      */
     @GetMapping("/{id}")
     public R<Employee> getById(@PathVariable String id){
