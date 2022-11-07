@@ -3,12 +3,13 @@ package com.co.cn.reggie.entity;
 import com.baomidou.mybatisplus.annotation.FieldFill;
 import com.baomidou.mybatisplus.annotation.TableField;
 import lombok.Data;
+
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Date;
 
 /**
- 菜品
+ * 菜品
  */
 @Data
 public class Dish implements Serializable {
@@ -23,7 +24,7 @@ public class Dish implements Serializable {
 
 
     //菜品分类id
-    private Long categoryId;
+    private String categoryId;
 
 
     //菜品价格

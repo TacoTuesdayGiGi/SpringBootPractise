@@ -1,7 +1,9 @@
 package com.co.cn.reggie.entity;
 
 import lombok.Data;
+
 import java.io.Serializable;
+
 /**
  * 用户信息
  */
